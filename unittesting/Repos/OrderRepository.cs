@@ -1,5 +1,5 @@
 ﻿using unittesting.Entities;
-using unittesting.Interfaces;
+using unittesting.Interfaces.Repos;
 
 namespace unittesting.Repos
 {

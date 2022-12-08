@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace unittesting.Interfaces
+namespace unittesting.Interfaces.Repos
 {
     public interface IGenericRepository<T> where T : class
     {

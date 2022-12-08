@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using unittesting.Interfaces;
+using unittesting.Interfaces.Repos;
 
 namespace unittesting.Repos
 {

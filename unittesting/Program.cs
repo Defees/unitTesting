@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using unittesting;
 using unittesting.Interfaces;
+using unittesting.Interfaces.Repos;
 using unittesting.Repos;
 using unittesting.Services;
 

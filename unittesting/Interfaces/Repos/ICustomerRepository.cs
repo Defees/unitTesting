@@ -1,6 +1,6 @@
 ﻿using unittesting.Entities;
 
-namespace unittesting.Interfaces
+namespace unittesting.Interfaces.Repos
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
