@@ -7,6 +7,7 @@ namespace unittesting.Interfaces.Repos
         public T GetById(int id);
         public IEnumerable<T> GetAll();
         public IEnumerable<T> Find(Expression<Func<T, bool>> expression);
+        public IEnumerable<T> GetAllInclude<TEntity>(Expression<Func<T, TEntity>> expression);
         public void Add(T entity);
         public void AddRange(IEnumerable<T> entities);
         public void Remove(T entity);

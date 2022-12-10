@@ -1,4 +1,5 @@
-﻿using unittesting.Interfaces;
+﻿using AutoMapper;
+using unittesting.Interfaces;
 using unittesting.Interfaces.Repos;
 using unittesting.Repos;
 

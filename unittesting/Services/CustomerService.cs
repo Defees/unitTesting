@@ -1,18 +1,22 @@
-﻿using unittesting.Entities;
+﻿using AutoMapper;
+using unittesting.Entities;
 using unittesting.Interfaces;
+using unittesting.Models;
 
 namespace unittesting.Services
 {
     public class CustomerService : ICustomerService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CustomerService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public CustomerService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
         public void CreateCustomer(string name)
         {
-            _unitOfWork.Customers.Add(new Customer(name));
+             _unitOfWork.Customers.Add(new Customer() { Name = name});
             _unitOfWork.Complete();
         }
 
@@ -22,9 +26,10 @@ namespace unittesting.Services
             _unitOfWork.Complete();
         }
 
-        public IEnumerable<Customer> GetAllCustomers()
-        {
-            return _unitOfWork.Customers.GetAll();
+        public IEnumerable<CustomerModel> GetAllCustomers()
+        { 
+            return _unitOfWork.Customers.GetAllInclude<List<Order>>(c => c.Orders)
+                .Select(c => _mapper.Map<Customer, CustomerModel>(c)).ToList(); 
         }
 
         public Customer GetCustomer(int id)
@@ -32,9 +37,10 @@ namespace unittesting.Services
             return _unitOfWork.Customers.GetById(id);
         }
 
-        public IEnumerable<Order> GetCustomerOrders(int customerId)
+        public IEnumerable<OrderModel> GetCustomerOrders(int customerId)
         {
-            return _unitOfWork.Customers.GetCustomerOrders(customerId);
+            return _unitOfWork.Customers.GetCustomerOrders(customerId)
+                .Select(c => _mapper.Map<Order, OrderModel>(c)).ToList();
         }
 
         public void UpdateCustomer(int id, string name)

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using unittesting.Interfaces.Repos;
 
 namespace unittesting.Repos
@@ -29,6 +30,11 @@ namespace unittesting.Repos
         public IEnumerable<T> GetAll()
         {
             return _context.Set<T>().ToList();
+        }
+
+        public IEnumerable<T> GetAllInclude<TEntity>(Expression<Func<T, TEntity>> expression)
+        {
+            return _context.Set<T>().Include(expression).ToList();
         }
 
         public T GetById(int id)

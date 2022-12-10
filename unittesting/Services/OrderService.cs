@@ -10,9 +10,13 @@ namespace unittesting.Services
         {
             _unitOfWork = unitOfWork;
         }
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return _unitOfWork.Orders.GetAll();
+        }
         public void CreateOrder(int customerId, string code)
         {
-            _unitOfWork.Orders.Add(new Order(customerId, code));
+            _unitOfWork.Orders.Add(new Order() { CustomerId = customerId, Code = code});
             _unitOfWork.Complete();
         }
 

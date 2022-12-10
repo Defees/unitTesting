@@ -1,12 +1,9 @@
-﻿namespace unittesting.Entities
+﻿namespace unittesting.Models
 {
-    public class Order
+    public class OrderModel
     {
         public int Id { get; set; }
         public string Code { get; set; }
         public int? CustomerId { get; set; }
-        public Customer Customer { get; set; }
-     
-
     }
 }
