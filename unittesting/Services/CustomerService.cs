@@ -26,7 +26,12 @@ namespace unittesting.Services
             _unitOfWork.Complete();
         }
 
-        public IEnumerable<CustomerModel> GetAllCustomers()
+        public IEnumerable<Customer> GetCustomers()
+        {
+            return _unitOfWork.Customers.GetAll();
+        }
+
+        public IEnumerable<CustomerModel> GetAllCustomersWithOrders()
         { 
             return _unitOfWork.Customers.GetAllInclude<List<Order>>(c => c.Orders)
                 .Select(c => _mapper.Map<Customer, CustomerModel>(c)).ToList(); 
@@ -45,7 +50,8 @@ namespace unittesting.Services
 
         public void UpdateCustomer(int id, string name)
         {
-            _unitOfWork.Customers.UpdateCustomer(id, name);
+            var customer = _unitOfWork.Customers.GetById(id);
+            customer.Name = name;
             _unitOfWork.Complete();
         }
     }

@@ -17,10 +17,16 @@ namespace unittesting.Controllers
         }
 
         [HttpGet]
+        [Route("getallcustomerswithorders")]
+        public async Task<IActionResult> GetAllCustomersWithOrders()
+        {
+            return Ok(_customerService.GetAllCustomersWithOrders());
+        }
+        [HttpGet]
         [Route("getallcustomers")]
         public async Task<IActionResult> GetAllCustomers()
         {
-            return Ok(_customerService.GetAllCustomers());
+            return Ok(_customerService.GetCustomers());
         }
 
         [HttpPost]

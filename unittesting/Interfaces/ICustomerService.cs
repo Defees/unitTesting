@@ -5,8 +5,9 @@ namespace unittesting.Interfaces
 {
     public interface ICustomerService
     {
-        public IEnumerable<CustomerModel> GetAllCustomers();
+        public IEnumerable<CustomerModel> GetAllCustomersWithOrders();
         public Customer GetCustomer(int id);
+        public IEnumerable<Customer> GetCustomers();
         public IEnumerable<OrderModel> GetCustomerOrders(int id);
         public void CreateCustomer(string name);
         public void DeleteCustomer(int id);

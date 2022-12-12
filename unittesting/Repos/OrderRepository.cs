@@ -8,10 +8,5 @@ namespace unittesting.Repos
         public OrderRepository(ApplicationDbContext context) : base(context)
         {
         }
-
-        public void UpdateOrder(int orderId, string code)
-        {
-            _context.Set<Order>().FirstOrDefault(order => order.Id == orderId).Code = code;
-        }
     }
 }

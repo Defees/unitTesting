@@ -17,10 +17,5 @@ namespace unittesting.Repos
         {
             return _context.Set<Order>().Include(c => c.Customer).Where(c => c.CustomerId == id).ToList();
         }
-
-        public void UpdateCustomer(int id, string name)
-        {
-            _context.Set<Customer>().FirstOrDefault(customer => customer.Id == id).Name = name;
-        }
     }
 }

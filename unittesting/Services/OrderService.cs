@@ -33,7 +33,8 @@ namespace unittesting.Services
 
         public void UpdateOrder(int id, string code)
         {
-            _unitOfWork.Orders.UpdateOrder(id, code);
+            var order = _unitOfWork.Orders.GetById(id);
+            order.Code = code;
             _unitOfWork.Complete();
         }
     }
