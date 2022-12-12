@@ -114,6 +114,7 @@ namespace Tests
         public void AddCustomer_VerifyAdd()
         {
             //arrange
+            Mock<ICustomerRepository> mockCustomerRepository = new Mock<ICustomerRepository>();
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             mockUnitOfWork
                 .Setup(uow => uow.Customers)
