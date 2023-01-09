@@ -1,6 +1,6 @@
 # unitTesting
 
-Unit Testing, Moc, 
+Unit Testing, Moq 
 
 Repository Pattern + Unit of Work Pattern
 
