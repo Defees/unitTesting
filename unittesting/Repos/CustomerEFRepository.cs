@@ -7,9 +7,9 @@ using unittesting.Models;
 
 namespace unittesting.Repos
 {
-    public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
+    public class CustomerEFRepository : GenericEFRepository<Customer>, ICustomerRepository
     {
-        public CustomerRepository(ApplicationDbContext context) : base(context)
+        public CustomerEFRepository(ApplicationDbContext context) : base(context)
         {
         }
 

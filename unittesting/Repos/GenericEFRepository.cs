@@ -4,10 +4,10 @@ using unittesting.Interfaces.Repos;
 
 namespace unittesting.Repos
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericEFRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly ApplicationDbContext _context;
-        public GenericRepository(ApplicationDbContext context)
+        public GenericEFRepository(ApplicationDbContext context)
         {
             _context = context; 
         }

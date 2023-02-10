@@ -12,10 +12,12 @@ using unittesting.Services;
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
+
 // Add services to the container.
-builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericEFRepository<>));
+builder.Services.AddTransient<ICustomerRepository, CustomerEFRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<IOrderRepository, OrderDapperRepository>(provider => new OrderDapperRepository(configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
