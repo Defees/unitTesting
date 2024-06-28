@@ -7,6 +7,7 @@ namespace unittesting.Configuration
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
+        // task masters
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
             builder.ToTable("Customers");
