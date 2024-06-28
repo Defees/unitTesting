@@ -9,7 +9,6 @@ namespace unittesting.AutoMapper
     {
         public AppMappingProfile()
         {
-            //task 2 commit
             CreateMap<Customer, CustomerModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
